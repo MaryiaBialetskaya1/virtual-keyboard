@@ -228,6 +228,10 @@ const Keyboard = {
       }
     }
   },
-  open(initialValue, oninput, onclose) {},
+  open(initialValue, oninput, onclose) {
+    this.properties.value = initialValue || "";
+    this.eventHandlers.oninput = oninput;
+    this.eventHandlers.onclose = onclose;
+  },
   close() {},
 };
