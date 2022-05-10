@@ -239,3 +239,64 @@ const Keyboard = {
     this.eventHandlers.onclose = onclose;
   },
 };
+
+window.addEventListener("DOMContentLoaded", function () {
+  Keyboard.init();
+});
+
+for (let i = 0; i < keyLayout.length; i++) {
+  keyLayout[i].setAttribute("keyname", keyLayout[i].innerText);
+  keyLayout[i].setAttribute(
+    "lowerCaseName",
+    keyLayout[i].innerText.toLowerCase()
+  );
+}
+window.addEventListener("keydown", function (e) {
+  for (let i = 0; i < keyLayout.length; i++) {
+    if (
+      e.key == keyLayout[i].getAttribute("keyname") ||
+      e.key == keyLayout[i].getAttribute("lowerCaseName")
+    ) {
+      keyLayout[i].classList.add("active");
+    }
+    if (e.code == "Space") {
+      spaceKey.classList.add("active");
+    }
+    if (e.code == "ShiftLeft") {
+      shift_right.classList.remove("active");
+    }
+    if (e.code == "ShiftRight") {
+      shift_left.classList.remove("active");
+    }
+    if (e.code == "CapsLock") {
+      caps_lock_key.classList.toggle("active");
+    }
+  }
+});
+
+window.addEventListener("keyup", function (e) {
+  for (let i = 0; i < keyLayout.length; i++) {
+    if (
+      e.key == keyLayout[i].getAttribute("keyname") ||
+      e.key == keyLayout[i].getAttribute("lowerCaseName")
+    ) {
+      keyLayout[i].classList.remove("active");
+      keyLayout[i].classList.add("remove");
+    }
+    if (e.code == "Space") {
+      spaceKey.classList.remove("active");
+      spaceKey.classList.add("remove");
+    }
+    if (e.code == "ShiftLeft") {
+      shift_right.classList.remove("active");
+      shift_right.classList.remove("remove");
+    }
+    if (e.code == "ShiftRight") {
+      shift_left.classList.remove("active");
+      shift_left.classList.remove("remove");
+    }
+    setTimeout(() => {
+      keyLayout[i].classList.remove("remove");
+    }, 200);
+  }
+});
