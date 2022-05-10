@@ -212,7 +212,11 @@ const Keyboard = {
 
     return fragment;
   },
-  _triggerEvent(handlerName) {},
+  _triggerEvent(handlerName) {
+    if (typeof this.eventHandlers[handlerName] == "function") {
+      this.eventHandlers[handlerName](this.properties.value);
+    }
+  },
   _toggleCapsLock() {},
   open(initialValue, oninput, onclose) {},
   close() {},
