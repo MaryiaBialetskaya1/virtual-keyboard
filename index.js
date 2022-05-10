@@ -108,6 +108,9 @@ const Keyboard = {
       "?",
       "space",
     ];
+    const createIconHTML = (icon_name) => {
+      return `<i class="material-icons">${icon_name}</i>`;
+    };
   },
   _triggerEvent(handlerName) {},
   _toggleCapsLock() {},
