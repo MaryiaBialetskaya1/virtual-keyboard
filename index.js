@@ -96,7 +96,7 @@ const Keyboard = {
       ";",
       "'",
       "enter",
-      "shift",
+      "Shift",
       "z",
       "x",
       "c",
