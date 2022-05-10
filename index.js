@@ -233,5 +233,9 @@ const Keyboard = {
     this.eventHandlers.oninput = oninput;
     this.eventHandlers.onclose = onclose;
   },
-  close() {},
+  close() {
+    this.properties.value = "";
+    this.eventHandlers.oninput = oninput;
+    this.eventHandlers.onclose = onclose;
+  },
 };
