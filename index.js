@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const input = document.createElement("textarea");
 input.setAttribute("id", "textlabel");
 input.setAttribute("type", "text");
